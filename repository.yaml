@@ -1,0 +1,9 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: AddonRepository
+metadata:
+  name: dispatch
+spec:
+  priority: "1"
+  url: "https://github.com/mesosphere/kubeaddons-dispatch"
+  ref: "master"
