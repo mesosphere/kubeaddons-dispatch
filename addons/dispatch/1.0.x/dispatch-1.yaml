@@ -13,19 +13,16 @@ metadata:
     appversion.kubeaddons.mesosphere.io/dispatch: "1.0.0-rc1"
     endpoint.kubeaddons.mesosphere.io/dispatch: "/ops/portal/#/dispatch/"
     docs.kubeaddons.mesosphere.io/dispatch: "https://docs.d2iq.com/ksphere/dispatch/latest/"
-    stage.kubeaddons.mesosphere.io/dispatch: Beta
 
     # Tekton
     appversion.kubeaddons.mesosphere.io/tekton: "0.10.0"
     endpoint.kubeaddons.mesosphere.io/tekton: /dispatch/tekton/
     docs.kubeaddons.mesosphere.io/tekton: "https://docs.d2iq.com/ksphere/dispatch/latest/"
-    stage.kubeaddons.mesosphere.io/tekton: Beta
 
     # Argo CD
     appversion.kubeaddons.mesosphere.io/argo-cd: "1.4.2"
     endpoint.kubeaddons.mesosphere.io/argo-cd: /dispatch/argo-cd
     docs.kubeaddons.mesosphere.io/argo-cd: "https://argoproj.github.io/argo-cd/user-guide/"
-    stage.kubeaddons.mesosphere.io/argo-cd: Beta
 
     values.chart.helm.kubeaddons.mesosphere.io/dispatch: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/dispatch/values.yaml"
 spec:
