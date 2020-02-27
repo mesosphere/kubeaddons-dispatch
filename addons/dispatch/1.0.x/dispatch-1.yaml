@@ -12,13 +12,13 @@ metadata:
     # Dispatch
     appversion.kubeaddons.mesosphere.io/dispatch: "1.0.0-rc1"
     endpoint.kubeaddons.mesosphere.io/dispatch: "/ops/portal/#/dispatch/"
-    docs.kubeaddons.mesosphere.io/dispatch: "https://beta-dispatch.d2iq.com/"
+    docs.kubeaddons.mesosphere.io/dispatch: "https://docs.d2iq.com/ksphere/dispatch/latest/"
     stage.kubeaddons.mesosphere.io/dispatch: Beta
 
     # Tekton
     appversion.kubeaddons.mesosphere.io/tekton: "0.10.0"
     endpoint.kubeaddons.mesosphere.io/tekton: /dispatch/tekton/
-    docs.kubeaddons.mesosphere.io/tekton: "https://beta-dispatch.d2iq.com/"
+    docs.kubeaddons.mesosphere.io/tekton: "https://docs.d2iq.com/ksphere/dispatch/latest/"
     stage.kubeaddons.mesosphere.io/tekton: Beta
 
     # Argo CD
