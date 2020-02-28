@@ -7,10 +7,10 @@ metadata:
     kubeaddons.mesosphere.io/name: dispatch
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
   annotations:
-    catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.0-rc2"
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.0-rc4"
 
     # Dispatch
-    appversion.kubeaddons.mesosphere.io/dispatch: "1.0.0-rc2"
+    appversion.kubeaddons.mesosphere.io/dispatch: "1.0.0-rc4"
     endpoint.kubeaddons.mesosphere.io/dispatch: "/ops/portal/#/dispatch/"
     docs.kubeaddons.mesosphere.io/dispatch: "https://docs.d2iq.com/ksphere/dispatch/latest/"
 
@@ -46,7 +46,7 @@ spec:
   chartReference:
     chart: dispatch
     repo: https://mesosphere.github.io/dispatch
-    version: 1.0.0-rc2
+    version: 1.0.0-rc4
     values: |
       ---
       argo-cd:
