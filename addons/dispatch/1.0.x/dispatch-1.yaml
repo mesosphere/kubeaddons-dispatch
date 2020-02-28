@@ -1,0 +1,78 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
+metadata:
+  name: dispatch
+  labels:
+    kubeaddons.mesosphere.io/name: dispatch
+    kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
+  annotations:
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.0"
+
+    # Dispatch
+    appversion.kubeaddons.mesosphere.io/dispatch: "1.0.0"
+    endpoint.kubeaddons.mesosphere.io/dispatch: "/ops/portal/#/dispatch/"
+    docs.kubeaddons.mesosphere.io/dispatch: "https://docs.d2iq.com/ksphere/dispatch/latest/"
+
+    # Tekton
+    appversion.kubeaddons.mesosphere.io/tekton: "0.10.0"
+    endpoint.kubeaddons.mesosphere.io/tekton: /dispatch/tekton/
+    docs.kubeaddons.mesosphere.io/tekton: "https://docs.d2iq.com/ksphere/dispatch/latest/"
+
+    # Argo CD
+    appversion.kubeaddons.mesosphere.io/argo-cd: "1.4.2"
+    endpoint.kubeaddons.mesosphere.io/argo-cd: /dispatch/argo-cd
+    docs.kubeaddons.mesosphere.io/argo-cd: "https://argoproj.github.io/argo-cd/user-guide/"
+
+    values.chart.helm.kubeaddons.mesosphere.io/dispatch: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/dispatch/values.yaml"
+spec:
+  namespace: dispatch
+  kubernetes:
+    minSupportedVersion: v1.15.6
+  cloudProvider:
+    - name: aws
+      enabled: false
+    - name: azure
+      enabled: false
+    - name: gcp
+      enabled: false
+    - name: docker
+      enabled: false
+    - name: none
+      enabled: false
+  requires:
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: prometheus
+  chartReference:
+    chart: dispatch
+    repo: https://mesosphere.github.io/dispatch
+    version: 1.0.0
+    values: |
+      ---
+      argo-cd:
+        controller:
+          metrics:
+            enabled: true
+            serviceMonitor:
+              additionalLabels:
+                release: prometheus-kubeaddons
+        server:
+          metrics:
+            enabled: true
+            serviceMonitor:
+              additionalLabels:
+                release: prometheus-kubeaddons
+        repoServer:
+          metrics:
+            enabled: true
+            serviceMonitor:
+              additionalLabels:
+                release: prometheus-kubeaddons
+
+      global:
+        prometheus:
+          enabled: true
+          release: prometheus-kubeaddons
+        grafana:
+          enabled: true
+          namespace: kubeaddons
