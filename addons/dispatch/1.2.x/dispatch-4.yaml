@@ -58,7 +58,7 @@ spec:
         testImage: mesosphere/dispatch-helm-test:1.2.0
       tekton-dashboard:
         image:
-          dashboard: gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.7.0
+          dashboard: gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.6.1.5
       tekton:
         controller:
           images:
