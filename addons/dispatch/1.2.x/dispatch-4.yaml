@@ -53,6 +53,16 @@ spec:
     version: "1.2.0"
     values: |
       ---
+      dispatch:
+        image: mesosphere/dispatch:1.2.0
+        testImage: mesosphere/dispatch-helm-test:1.2.0
+      tekton-dashboard:
+        image:
+          dashboard: gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.7.0
+      tekton:
+        controller:
+          images:
+            entrypoint: mesosphere/dispatch-entrypoint:1.2.0
       argo-cd:
         controller:
           metrics:
