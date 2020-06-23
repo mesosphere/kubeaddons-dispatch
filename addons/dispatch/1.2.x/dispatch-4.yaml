@@ -60,6 +60,7 @@ spec:
         image:
           dashboard: gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.6.1.5
       tekton:
+        image: mesosphere/dispatch-tekton-controller:1.2.0
         controller:
           images:
             entrypoint: mesosphere/dispatch-entrypoint:1.2.0
