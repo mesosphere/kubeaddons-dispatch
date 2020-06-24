@@ -9,7 +9,7 @@ when a new Dispatch release is tagged.
 
 ## Images Required by Air-gapped Environments
 
-Most images can be fetched through helm test. However, the following images needs to be added manually at the momont.
+Most images can be fetched through helm test. However, the following images needs to be added manually at the moment:
 
 - Parser images for Dispatch 1.0
   - `mesosphere/dispatch-starlark:v0.1`
