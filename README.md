@@ -14,14 +14,14 @@ Most images can be fetched through helm test. However, the following images need
 - System images
   - `tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter:v0.11.1`
   - `tianon/true:latest`
-  - `mesosphere/dispatch-gsutil:1.2.0`
+  - `mesosphere/dispatch-gsutil:1.2.1`
   - `tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.11.1`
   - `tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.11.1`
   - `tekton-releases/github.com/tektoncd/pipeline/vendor/github.com/googlecloudplatform/cloud-builders/gcs-fetcher/cmd/gcs-fetcher:v0.11.1`
 - CLI images
-  - `mesosphere/dispatch-argocd:1.2.0`
-  - `mesosphere/tkn:1.2.0`
-  - `mesosphere/dispatch-helm:1.2.0`
+  - `mesosphere/dispatch-argocd:1.2.1`
+  - `mesosphere/tkn:1.2.1`
+  - `mesosphere/dispatch-helm:1.2.1`
 - Parser images for Dispatch 1.0
   - `mesosphere/dispatch-starlark:v0.1`
   - `mesosphere/dispatch-dind:1.0.0` (for the built-in `dindTask` function)
@@ -40,4 +40,4 @@ Most images can be fetched through helm test. However, the following images need
   - `mesosphere/dispatch-yaml:v0.3`
   - `mesosphere/dispatch-json:v0.3`
 - Utility images
-  - `mesosphere/update-gitops-repo:1.2.0`
+  - `mesosphere/update-gitops-repo:1.2.1`
