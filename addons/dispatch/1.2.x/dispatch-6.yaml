@@ -55,6 +55,17 @@ spec:
       "argo-cd.server.ingress.annotations.traefik\\.ingress\\.kubernetes\\.io/auth-url": "ingress.auth.auth-url"
     values: |
       ---
+      dispatch:
+        image: mesosphere/dispatch:1.2.2
+        testImage: mesosphere/dispatch-helm-test:1.2.2
+      tekton-dashboard:
+        image:
+          dashboard: gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.6.1.5
+      tekton:
+        controller:
+          image: mesosphere/dispatch-tekton-controller:1.2.0
+          images:
+            entrypoint: mesosphere/dispatch-entrypoint:1.2.2
       argo-cd:
         controller:
           metrics:
