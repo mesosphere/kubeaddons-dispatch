@@ -79,6 +79,8 @@ spec:
             serviceMonitor:
               additionalLabels:
                 release: prometheus-kubeaddons
+      kommander-ui:
+        fullnameOverride: dispatch-kommander-ui
       tekton:
         webhook:
           replicas: 3 # tekton webhook
