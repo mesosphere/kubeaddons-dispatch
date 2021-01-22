@@ -46,8 +46,6 @@ spec:
       enabled: false
   requires:
     - matchLabels:
-        kubeaddons.mesosphere.io/name: prometheus
-    - matchLabels:
         kubeaddons.mesosphere.io/name: cert-manager
   chartReference:
     chart: dispatch
