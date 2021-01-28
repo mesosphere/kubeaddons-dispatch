@@ -99,6 +99,8 @@ spec:
           enabled: true
           namespace: kubeaddons
       minio:
+        DeploymentUpdate:
+          type: Recreate
         persistence:
           size: "50Gi" # minio
       buildkit:
