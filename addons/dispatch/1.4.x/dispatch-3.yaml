@@ -17,12 +17,12 @@ metadata:
     docs.kubeaddons.mesosphere.io/dispatch: "https://docs.d2iq.com/dkp/dispatch/latest/"
 
     # Tekton
-    appversion.kubeaddons.mesosphere.io/tekton: "0.14.2"
+    appversion.kubeaddons.mesosphere.io/tekton: "0.16.3"
     endpoint.kubeaddons.mesosphere.io/tekton: /dispatch/tekton/
     docs.kubeaddons.mesosphere.io/tekton: "https://docs.d2iq.com/dkp/dispatch/latest/"
 
     # Argo CD
-    appversion.kubeaddons.mesosphere.io/argo-cd: "1.4.2"
+    appversion.kubeaddons.mesosphere.io/argo-cd: "1.6.2"
     endpoint.kubeaddons.mesosphere.io/argo-cd: /dispatch/argo-cd
     docs.kubeaddons.mesosphere.io/argo-cd: "https://argoproj.github.io/argo-cd/user-guide/"
 
