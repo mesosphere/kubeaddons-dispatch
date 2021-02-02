@@ -58,6 +58,7 @@ spec:
     values: |
       ---
       argo-cd:
+        enabled: false
         controller:
           metrics:
             enabled: true
