@@ -86,7 +86,8 @@ spec:
         image: "mesosphere/dispatch:1.4.0"
         testImage: "mesosphere/dispatch-helm-test:1.4.0"
       kommander-ui:
-        defaultTag: 6.84.2
+        image:
+          defaultTag: 6.84.2
       tekton:
         controller:
           images:
