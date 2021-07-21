@@ -1,0 +1,84 @@
+apiVersion: kubeaddons.mesosphere.io/v1beta2
+kind: ClusterAddon
+metadata:
+  name: dispatch
+  labels:
+    kubeaddons.mesosphere.io/name: dispatch
+    kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
+  annotations:
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.4.6"
+
+    # Dispatch
+    appversion.kubeaddons.mesosphere.io/dispatch: "1.4.6"
+    endpoint.kubeaddons.mesosphere.io/dispatch: /dispatch/dashboard 
+    docs.kubeaddons.mesosphere.io/dispatch: "https://docs.d2iq.com/dkp/dispatch/latest/"
+
+    # Tekton
+    appversion.kubeaddons.mesosphere.io/tekton: "0.14.2"
+    endpoint.kubeaddons.mesosphere.io/tekton: /dispatch/tekton/
+    docs.kubeaddons.mesosphere.io/tekton: "https://docs.d2iq.com/dkp/dispatch/latest/"
+
+    values.chart.helm.kubeaddons.mesosphere.io/dispatch: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/dispatch/values.yaml"
+spec:
+  namespace: dispatch
+  kubernetes:
+    minSupportedVersion: v1.15.6
+  cloudProvider:
+    - name: aws
+      enabled: false
+    - name: azure
+      enabled: false
+    - name: gcp
+      enabled: false
+    - name: vsphere
+      enabled: false
+    - name: docker
+      enabled: false
+    - name: none
+      enabled: false
+  requires:
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: prometheus
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: cert-manager
+  chartReference:
+    chart: dispatch
+    repo: "https://mesosphere.github.io/dispatch"
+    version: "1.4.6"
+    values: |
+      ---
+      dispatch:
+        image: "mesosphere/dispatch:1.4.6"
+        testImage: "mesosphere/dispatch-helm-test:1.4.6"
+      kommander-ui:
+        image:
+          defaultTag: 6.99.2
+      tekton:
+        controller:
+          images:
+            entrypoint: "mesosphere/dispatch-entrypoint:1.4.6"
+            gsutil: "mesosphere/dispatch-gsutil:1.4.6"
+        webhook:
+          replicas: 3 # tekton webhook
+      global:
+        prometheus:
+          enabled: true
+          release: prometheus-kubeaddons
+        grafana:
+          enabled: true
+          namespace: kubeaddons
+      minio:
+        persistence:
+          size: "50Gi" # minio
+      buildkit:
+        enabled: false # buildkit
+        resources:
+          limits:
+            cpu: "4000m" # buildkit
+            memory: "4Gi" # buildkit
+          requests:
+            cpu: "4000m" # buildkit
+            memory: "4Gi" # buildkit
+      flux:
+        helmRepo: "https://mesosphere.github.io/dispatch"
+
